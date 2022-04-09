@@ -41,20 +41,8 @@ namespace AddressBook
         {
             Contacts contact = new Contacts();
 
-            Console.WriteLine("Enter First Name of The Contact to checkfor Duplication: ");
-            string name = Console.ReadLine();
-
-            //Checking For Duplication 
-            bool flag = records.Any(x => string.Equals(x.firstName, name));
-
-            if (flag)
-            {
-                Console.WriteLine("The given Name is already exist");
-            }
-            else
-            {
-                //If not then adding new contact
-                Console.WriteLine("No Duplication found ");
+           
+                // adding new contact
 
                 Console.WriteLine("Enter your First Name : ");
                 contact.firstName = Console.ReadLine();
@@ -74,8 +62,62 @@ namespace AddressBook
                 contact.email = Console.ReadLine();
 
                 records.Add(contact);
-            } 
             
+            
+        }
+
+
+        //Serch the person by city name
+        public void CheckByCity()
+        {
+            Console.WriteLine("Please enter the city name to find person: ");
+            string ecity=Console.ReadLine();
+            List<Contacts> contacts = records.FindAll(x => (x.city == ecity));
+
+            //Checking for Availability
+            if (contacts.Count == 0)
+            {
+                Console.WriteLine("No person found in that City");
+            }
+            else
+            {
+                Console.WriteLine("Person details are: ");
+                foreach (Contacts contact in contacts)
+                {
+                    Console.WriteLine("\nFirst name is: "+contact.firstName);
+                    Console.WriteLine("Last name is: "+contact.lastName);
+                    Console.WriteLine("City : " + contact.city);
+                }
+            }
+            
+
+        }
+
+
+        //Search the person by State name
+        public void CheckByState()
+        {
+
+            Console.WriteLine("Please enter the State to find person: ");
+            string estate = Console.ReadLine();
+            List<Contacts> contacts1 = records.FindAll(x => (x.state == estate));
+
+            //Checking for availability
+            if (contacts1.Count == 0)
+            {
+                Console.WriteLine("No person found in that state");
+            }
+            else
+            {
+                Console.WriteLine("Person details are: ");
+                foreach (Contacts contact in contacts1)
+                {
+                    Console.WriteLine("\nFirst name is: " + contact.firstName);
+                    Console.WriteLine("Last name is: " + contact.lastName);
+                    Console.WriteLine("State : " + contact.state);
+                }
+            }
+
         }
     }
 }
