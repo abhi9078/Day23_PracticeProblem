@@ -67,10 +67,10 @@ namespace AddressBook
         }
 
 
-        //Serch the person by city name
+        //Displaying person list by city name
         public void CheckByCity()
         {
-            Console.WriteLine("Please enter the city name to find person: ");
+            Console.WriteLine("Please enter the city name to find person list: ");
             string ecity=Console.ReadLine();
             List<Contacts> contacts = records.FindAll(x => (x.city == ecity));
 
@@ -81,12 +81,20 @@ namespace AddressBook
             }
             else
             {
-                Console.WriteLine("Person details are: ");
+                Console.WriteLine("Displaying the COntact by City: ");
+                int rc = 1;
                 foreach (Contacts contact in contacts)
                 {
-                    Console.WriteLine("\nFirst name is: "+contact.firstName);
+                    Console.WriteLine("\n\nRecord:-"+rc);
+                    Console.WriteLine("First name is: "+contact.firstName);
                     Console.WriteLine("Last name is: "+contact.lastName);
+                    Console.WriteLine("Address : " + contact.address);
                     Console.WriteLine("City : " + contact.city);
+                    Console.WriteLine("State : " + contact.state);
+                    Console.WriteLine("Email : " + contact.email);
+                    Console.WriteLine("Zip code : " + contact.zip);
+                    Console.WriteLine("Phone Number : " + contact.phoneNumber);
+                    rc++;
                 }
             }
             
@@ -94,11 +102,11 @@ namespace AddressBook
         }
 
 
-        //Search the person by State name
+        //Displaying person list by State name
         public void CheckByState()
         {
 
-            Console.WriteLine("Please enter the State to find person: ");
+            Console.WriteLine("Please enter the State to find Person list of that State: ");
             string estate = Console.ReadLine();
             List<Contacts> contacts1 = records.FindAll(x => (x.state == estate));
 
@@ -109,12 +117,20 @@ namespace AddressBook
             }
             else
             {
-                Console.WriteLine("Person details are: ");
+                Console.WriteLine("Displaying the Contact by State: ");
+                int rc = 1;
                 foreach (Contacts contact in contacts1)
                 {
-                    Console.WriteLine("\nFirst name is: " + contact.firstName);
+                    Console.WriteLine("\n\nRecord:-" + rc);
+                    Console.WriteLine("First name is: " + contact.firstName);
                     Console.WriteLine("Last name is: " + contact.lastName);
+                    Console.WriteLine("Address : " + contact.address);
+                    Console.WriteLine("City : " + contact.city);
                     Console.WriteLine("State : " + contact.state);
+                    Console.WriteLine("Email : " + contact.email);
+                    Console.WriteLine("Zip code : " + contact.zip);
+                    Console.WriteLine("Phone Number : " + contact.phoneNumber);
+                    rc++;
                 }
             }
 
