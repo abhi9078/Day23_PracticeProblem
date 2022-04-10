@@ -66,76 +66,30 @@ namespace AddressBook
             
         }
 
-
-        //Displaying person list and count by city name
-        public void CheckByCity()
+        //Sorting the Contacts name by Alphabetic Order
+        public void SortContacts()
         {
-            Console.WriteLine("Please enter the city name to find person list: ");
-            string ecity=Console.ReadLine();
-            List<Contacts> contacts = records.FindAll(x => (x.city == ecity));
+            //Sorting and string in list
+            List<Contacts> contacts = records.OrderBy(x => x.firstName).ToList();
 
-            //Checking for Availability
-            if (contacts.Count == 0)
-            {
-                Console.WriteLine("No person found in that City");
-            }
-            else
-            {
-                Console.WriteLine("Total number of Contacts are: "+contacts.Count);
-                Console.WriteLine("\nDisplaying the COntact by City: ");
-                int rc = 1;
-                foreach (Contacts contact in contacts)
-                {
-                    Console.WriteLine("\n\nRecord:-"+rc);
-                    Console.WriteLine("First name is: "+contact.firstName);
-                    Console.WriteLine("Last name is: "+contact.lastName);
-                    Console.WriteLine("Address : " + contact.address);
-                    Console.WriteLine("City : " + contact.city);
-                    Console.WriteLine("State : " + contact.state);
-                    Console.WriteLine("Email : " + contact.email);
-                    Console.WriteLine("Zip code : " + contact.zip);
-                    Console.WriteLine("Phone Number : " + contact.phoneNumber);
-                    rc++;
-                }
-            }
-            
+            Console.WriteLine("Displaying Sorted Contact list in Alphabetic Order");
+            int rc = 1;
 
+            //Displaying List
+            foreach (Contacts contact in contacts)
+            {
+                Console.WriteLine("\n\nRecord:-" + rc);
+                Console.WriteLine("First name is: " + contact.firstName);
+                Console.WriteLine("Last name is: " + contact.lastName);
+                Console.WriteLine("Address : " + contact.address);
+                Console.WriteLine("City : " + contact.city);
+                Console.WriteLine("State : " + contact.state);
+                Console.WriteLine("Email : " + contact.email);
+                Console.WriteLine("Zip code : " + contact.zip);
+                Console.WriteLine("Phone Number : " + contact.phoneNumber);
+                rc++;
+            }
         }
-
-
-        //Displaying person list and count by State name
-        public void CheckByState()
-        {
-
-            Console.WriteLine("Please enter the State to find Person list of that State: ");
-            string estate = Console.ReadLine();
-            List<Contacts> contacts1 = records.FindAll(x => (x.state == estate));
-
-            //Checking for availability
-            if (contacts1.Count == 0)
-            {
-                Console.WriteLine("No person found in that state");
-            }
-            else
-            {
-                Console.WriteLine("Total Number of Contacts are: "+contacts1.Count);
-                Console.WriteLine("\nDisplaying the Contact by State: ");
-                int rc = 1;
-                foreach (Contacts contact in contacts1)
-                {
-                    Console.WriteLine("\n\nRecord:-" + rc);
-                    Console.WriteLine("First name is: " + contact.firstName);
-                    Console.WriteLine("Last name is: " + contact.lastName);
-                    Console.WriteLine("Address : " + contact.address);
-                    Console.WriteLine("City : " + contact.city);
-                    Console.WriteLine("State : " + contact.state);
-                    Console.WriteLine("Email : " + contact.email);
-                    Console.WriteLine("Zip code : " + contact.zip);
-                    Console.WriteLine("Phone Number : " + contact.phoneNumber);
-                    rc++;
-                }
-            }
-
-        }
+        
     }
 }
