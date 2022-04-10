@@ -67,7 +67,7 @@ namespace AddressBook
         }
 
 
-        //Displaying person list by city name
+        //Displaying person list and count by city name
         public void CheckByCity()
         {
             Console.WriteLine("Please enter the city name to find person list: ");
@@ -81,7 +81,8 @@ namespace AddressBook
             }
             else
             {
-                Console.WriteLine("Displaying the COntact by City: ");
+                Console.WriteLine("Total number of Contacts are: "+contacts.Count);
+                Console.WriteLine("\nDisplaying the COntact by City: ");
                 int rc = 1;
                 foreach (Contacts contact in contacts)
                 {
@@ -102,7 +103,7 @@ namespace AddressBook
         }
 
 
-        //Displaying person list by State name
+        //Displaying person list and count by State name
         public void CheckByState()
         {
 
@@ -117,7 +118,8 @@ namespace AddressBook
             }
             else
             {
-                Console.WriteLine("Displaying the Contact by State: ");
+                Console.WriteLine("Total Number of Contacts are: "+contacts1.Count);
+                Console.WriteLine("\nDisplaying the Contact by State: ");
                 int rc = 1;
                 foreach (Contacts contact in contacts1)
                 {

@@ -31,8 +31,8 @@ namespace AddressBook
             {
                 Console.WriteLine("\nEnter 1 to Add person in AddressBook");
                 Console.WriteLine("Enter 2 to Display all Contacts AdressBook");
-                Console.WriteLine("Enter 3 to Display person list by city");
-                Console.WriteLine("Enter 4 to Display person List by State");
+                Console.WriteLine("Enter 3 to Display person list and Count by by city");
+                Console.WriteLine("Enter 4 to Display person list and count by State");
                 int choice=int.Parse(Console.ReadLine());
 
                 switch (choice)
